@@ -1,6 +1,9 @@
 const App = () => {
   return ( 
-    <div>Via Vestigia</div>
+    <div>
+      <h1 className='logo'>Via Vestigia</h1>
+      <p>Blog Application</p>
+    </div>
   )
 }
  
