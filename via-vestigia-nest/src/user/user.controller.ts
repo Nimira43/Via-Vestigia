@@ -3,11 +3,11 @@ import { Repository } from 'typeorm'
 import { User } from './user.entity'
 import { InjectRepository } from '@nestjs/typeorm'
 import { GenericResponse } from 'src/shared'
+import { UserService } from './user.service'
 
 @Controller('users')
 export class UserController {
-  
-  
+    
   @Post()
   @HttpCode(HttpStatus.OK)
   async createUser(

@@ -9,4 +9,8 @@ export class UserService {
     @InjectRepository(User)
     private userRepository: Repository<User>
   ) {}
+  
+  async createUser(body: any): Promise<void> {
+    await this.userRepository.save(body)
+  }
 }
