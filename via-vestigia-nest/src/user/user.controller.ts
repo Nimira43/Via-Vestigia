@@ -23,7 +23,7 @@ export class UserController {
       handle: body.email.split('@')[0],
       email: body.email,
     }
-    await this.userRepository.save(body)
+    await this.userRepository.save(user)
     return 'Success'
   }
 }
