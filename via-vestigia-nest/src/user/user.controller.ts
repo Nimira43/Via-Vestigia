@@ -1,13 +1,13 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
-import { Repository } from 'typeorm'
-import { User } from './user.entity'
-import { InjectRepository } from '@nestjs/typeorm'
 import { GenericResponse } from 'src/shared'
 import { UserService } from './user.service'
 
 @Controller('users')
 export class UserController {
-    
+  constructor(
+    private userService: UserService,
+  ) {} 
+
   @Post()
   @HttpCode(HttpStatus.OK)
   async createUser(
@@ -19,7 +19,7 @@ export class UserController {
       handle: body.email.split('@')[0],
       email: body.email,
     }
-    await this.userRepository.save(user)
+    await this.userService.createUser(user)
     return new GenericResponse('Please check your email.')
   }
 }
