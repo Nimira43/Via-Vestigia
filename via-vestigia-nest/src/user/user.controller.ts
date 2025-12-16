@@ -14,10 +14,11 @@ export class UserController {
   
   @Post()
   @HttpCode(HttpStatus.OK)
-  createUser(
+  async createUser(
     @Body()
     body: any 
   ) {
+    await this.userRepository.save(body)
     return 'Success'
   }
 }
