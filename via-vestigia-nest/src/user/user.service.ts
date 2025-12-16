@@ -14,11 +14,11 @@ export class UserService {
   async createUser(
     body: CreateUser
   ): Promise<void> {
-    const user = {
-      name: body.email.split('@')[0],
-      handle: body.email.split('@')[0],
-      email: body.email,
-    }
-    await this.userRepository.save(body)
+    const user = new User()
+    user.email = body.email
+    user.name = body.email.split('@')[0],
+    user.handle = user.name
+    
+    await this.userRepository.save(user)
   }
 }
