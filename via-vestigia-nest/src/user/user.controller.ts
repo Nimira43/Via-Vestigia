@@ -1,4 +1,4 @@
-import { Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
+import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
 import { Repository } from 'typeorm'
 import { User } from './user.entity'
 import { InjectRepository } from '@nestjs/typeorm'
@@ -14,7 +14,10 @@ export class UserController {
   
   @Post()
   @HttpCode(HttpStatus.OK)
-  createUser() {
+  createUser(
+    @Body()
+    body: any 
+  ) {
     return 'Success'
   }
 }
