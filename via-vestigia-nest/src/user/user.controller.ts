@@ -18,7 +18,7 @@ export class UserController {
   async createUser(
     @Body()
     body: any 
-  ) {
+  ): Promise<GenericResponse> {
     const user = {
       name: body.email.split('@')[0],
       handle: body.email.split('@')[0],
