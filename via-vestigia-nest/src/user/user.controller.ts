@@ -11,11 +11,7 @@ export class UserController {
 
   @Post()
   @HttpCode(HttpStatus.OK)
-  async createUser(
-    @Body()
-    body: CreateUser
-  ): Promise<GenericResponse> {
-    
+  async createUser(@Body() body: CreateUser): Promise<GenericResponse> {
     await this.userService.createUser(body)
     return new GenericResponse('Please check your email.')
   }

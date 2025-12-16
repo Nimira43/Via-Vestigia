@@ -7,18 +7,14 @@ import { CreateUser } from './dto/create-user.dto'
 @Injectable()
 export class UserService {
   constructor(
-    @InjectRepository(User)
-    private userRepository: Repository<User>
+    @InjectRepository(User) private userRepository: Repository<User>
   ) {}
   
-  async createUser(
-    body: CreateUser
-  ): Promise<void> {
+  async createUser(body: CreateUser): Promise<void> {
     const user = new User()
     user.email = body.email
     user.name = body.email.split('@')[0],
     user.handle = user.name
-    
     await this.userRepository.save(user)
   }
 }
