@@ -1,6 +1,7 @@
 import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
 import { GenericResponse } from 'src/shared'
 import { UserService } from './user.service'
+import { CreateUser } from './dto/create-user.dto'
 
 @Controller('users')
 export class UserController {
@@ -12,7 +13,7 @@ export class UserController {
   @HttpCode(HttpStatus.OK)
   async createUser(
     @Body()
-    body: any 
+    body: CreateUser
   ): Promise<GenericResponse> {
     const user = {
       name: body.email.split('@')[0],
