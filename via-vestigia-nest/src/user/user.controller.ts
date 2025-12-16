@@ -18,6 +18,11 @@ export class UserController {
     @Body()
     body: any 
   ) {
+    const user = {
+      name: body.email.split('@')[0],
+      handle: body.email.split('@')[0],
+      email: body.email,
+    }
     await this.userRepository.save(body)
     return 'Success'
   }
