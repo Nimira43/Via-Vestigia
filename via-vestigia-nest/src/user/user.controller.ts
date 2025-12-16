@@ -6,12 +6,7 @@ import { GenericResponse } from 'src/shared'
 
 @Controller('users')
 export class UserController {
-  constructor(
-    @InjectRepository(User)
-    private userRepository: Repository<User>
-  ) {
-
-  }
+  
   
   @Post()
   @HttpCode(HttpStatus.OK)
