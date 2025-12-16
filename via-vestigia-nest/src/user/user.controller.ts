@@ -2,6 +2,7 @@ import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
 import { Repository } from 'typeorm'
 import { User } from './user.entity'
 import { InjectRepository } from '@nestjs/typeorm'
+import { GenericResponse } from 'src/shared'
 
 @Controller('users')
 export class UserController {
@@ -24,6 +25,6 @@ export class UserController {
       email: body.email,
     }
     await this.userRepository.save(user)
-    return 'Success'
+    return new GenericResponse('Please check your email.')
   }
 }
