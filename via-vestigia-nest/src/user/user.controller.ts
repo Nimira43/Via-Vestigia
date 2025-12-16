@@ -15,12 +15,8 @@ export class UserController {
     @Body()
     body: CreateUser
   ): Promise<GenericResponse> {
-    const user = {
-      name: body.email.split('@')[0],
-      handle: body.email.split('@')[0],
-      email: body.email,
-    }
-    await this.userService.createUser(user)
+    
+    await this.userService.createUser(body)
     return new GenericResponse('Please check your email.')
   }
 }
