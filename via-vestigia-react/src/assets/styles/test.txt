@@ -1,0 +1,41 @@
+<div>
+  <div className='p-5'>
+    <button className='button main-btn-dark'>Test</button>
+  </div>
+  <div className='p-5'>
+    <button className='button main-btn-light'>Test</button>
+  </div>
+  <div className='p-5'>
+    <button className='button support-btn'>Test</button>
+  </div>
+  <div className='p-5'>
+    <button className='button tertiary-btn'>Test</button>
+  </div>
+  <div className='p-5'>
+    <button className='button dark-btn '>Test</button>
+  </div>
+  <div className='p-5 dark-background'>
+    <button className='button light-btn'>Test</button>
+  </div>
+  <div className='p-5'>
+    <button className='button disabled-btn'>Test</button>
+  </div>
+  <div className='p-5'>
+    <button className='button main-outline-btn-dark'>Test</button>
+  </div>
+  <div className='p-5'>
+    <button className='button main-outline-btn-light'>Test</button>
+  </div>
+  <div className='p-5'>
+    <button className='button support-outline-btn'>Test</button>
+  </div>
+  <div className='p-5 '>
+    <button className='button tertiary-outline-btn'>Test</button>
+  </div>
+  <div className='p-5 '>
+    <button className='button dark-outline-btn'>Test</button>
+  </div>
+  <div className='p-5 dark-background'>
+    <button className='button light-outline-btn'>Test</button>
+  </div>
+</div>

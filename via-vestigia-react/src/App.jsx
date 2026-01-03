@@ -1,8 +1,10 @@
+import { SignUp } from './pages/sign-up'
+
 const App = () => {
   return ( 
-    <div>
-      <h1 className='logo'>Via Vestigia</h1>
-      <p>Blog Application</p>
+    <div className='container'>
+      <SignUp />
+      
     </div>
   )
 }
