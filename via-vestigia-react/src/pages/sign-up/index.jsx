@@ -1,28 +1,17 @@
-import { useState } from 'react'
+import { useSignUp } from './useSignUp'
 
 export function SignUp() {
-  const [email, setEmail] = useState()
+  const { apiProgress, disabled, onChangeEmail, onSubmit, successMessage } = useSignUp()
 
-  const onSubmit = (event) => {
-    event.preventDefault()
-    fetch('/api/users', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({ email })
-    })
-  }
-  
   return (
-    <div className="d-flex justify-content-center align-items-center vh-100">
-      <div className="w-100 form-width">
+    <div className='d-flex justify-content-center align-items-center vh-100'>
+      <div className='w-100 form-width'>
         <form
           className='card shadow-md '
           onSubmit={onSubmit}
         >
           <div className='card-header text-center light-bg'>
-            <h1 className='main-text uppercase font-medium'>Register</h1>
+            <h1 className='dark-text uppercase font-medium'>Register</h1>
           </div>
           <div className='card-body'>
             <div className='mb-3'>
@@ -36,15 +25,24 @@ export function SignUp() {
                 className='form-control'
                 id='email'
                 autoComplete='off'
-                onChange={(event) =>
-                  setEmail(event.target.value)
-                }
+                onChange={onChangeEmail}
               />
             </div>
+            {successMessage && 
+              <div
+                className='alert alert-success'
+                role='alert'
+              >
+                {successMessage}
+              </div>
+            }
             <button
               className='button main-btn-dark'
-              disabled={!email}
+              disabled={disabled || apiProgress}
             >
+              {apiProgress &&
+                <span className='spinner-border spinner-border-sm'></span>
+              }
               Register
             </button>
           </div>      

@@ -6,17 +6,19 @@
 }
 
 :root {
-  --main: #8A5A44;
-  --main-dark: #5A3A2E;
-  --main-light: #C9A58A;
-  --support: #D4A94E;
-  --tertiary: #C75B2A;
-  --light: #FDF9F5;
+  --main: #d64545;
+  --main-dark: #a83232;
+  --main-light: #f7dada;
+  --support: #e67e22;
+  --tertiary: #6c5ce7;
+  --success: #0ea90e;
+  --light: #fffdfd;
   --dark: #111111;
-  --grey-1: #2E2A28;
-  --grey-2: #6F6763;
-  --grey-3: #B8B1AE;
-  --grey-4: #E8E3E0;
+  --grey-1: #333;
+  --grey-2: #999;
+  --grey-3: #ccc;
+  --grey-4: #eee;
+  --grey-5: #fff;
   --shadow-none: none;
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow: 
@@ -285,4 +287,13 @@
 
 .form-width {
   max-width: 480px;
+}
+
+.alert-success {
+  background: none !important;
+  color: var(--success) !important;
+  border-color: var(--success) !important;
+  font-weight: 500 !important;
+  text-align: center !important;
+  padding: 0.4rem 0 !important;
 }
