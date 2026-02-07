@@ -4,8 +4,8 @@ import * as nodemailer from 'nodemailer'
 @Injectable()
 export class EmailService {
   private transport: nodemailer.Transporter
-
- // Sensitive data not being committed 
+  // Sensitive data ommitted
+  
   
   async sendSignUpEmail(
     email: string,

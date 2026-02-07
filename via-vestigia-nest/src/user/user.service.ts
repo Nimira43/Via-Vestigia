@@ -15,9 +15,13 @@ export class UserService {
   async createUser(body: CreateUser): Promise<void> {
     const user = new User()
     user.email = body.email
-    user.name = body.email.split('@')[0],
+    user.name = body.email.split('@')[0]
     user.handle = user.name
+    user.registrationToken = crypto.randomUUID()
     await this.userRepository.save(user)
-    await this.emailService.sendSignUpEmail(user.email, '')
+    await this.emailService.sendSignUpEmail(
+      user.email,
+      user.registrationToken
+    )
   }
 }
