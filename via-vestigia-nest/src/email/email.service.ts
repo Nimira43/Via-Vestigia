@@ -1,12 +1,22 @@
 import { Injectable } from '@nestjs/common'
+import { ConfigService } from '@nestjs/config'
 import * as nodemailer from 'nodemailer'
 
 @Injectable()
 export class EmailService {
   private transport: nodemailer.Transporter
-  // Sensitive data ommitted
-  
-  
+
+  constructor(private configService: ConfigService) {
+    this.transport = nodemailer.createTransport({
+      host: this.configService.get<string>('EMAIL_HOST'),
+      port: this.configService.get<number>('EMAIL_PORT'),
+      auth: {
+        user: this.configService.get<string>('EMAIL_USERNAME'),
+        pass: this.configService.get<string>('EMAIL_PASSWORD')
+      }
+    })
+  }
+ 
   async sendSignUpEmail(
     email: string,
     token: string  
@@ -19,7 +29,7 @@ export class EmailService {
         <h1>You are almost there</h1>
         <span>Click the link below to confirm you email and finish creating your My App account.</span>
         <div>
-          <a href="http://localhost:5173/callback?token=${token}&operation=register">Create Your Account</a>
+          <a href="${this.configService.get<string>('CLIENT_HOST')}}/callback?token=${token}&operation=register">Create Your Account</a>
         </div>
       `
     })
