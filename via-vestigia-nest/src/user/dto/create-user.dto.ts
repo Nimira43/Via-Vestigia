@@ -1,6 +1,6 @@
 import { IsEmail } from 'class-validator'
 
 export class CreateUser {
-  @IsEmail()
+  @IsEmail({}, { message: 'Invalid email format'})
   email: string
 }

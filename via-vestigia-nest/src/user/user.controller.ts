@@ -1,5 +1,5 @@
-import { BadRequestException, Body, Controller, HttpCode, HttpStatus, Post, UseFilters, UsePipes, ValidationPipe } from '@nestjs/common'
-import { GenericExceptionFilter, GenericResponse } from 'src/shared'
+import { Body, Controller, HttpCode, HttpStatus, Post } from '@nestjs/common'
+import { GenericResponse } from 'src/shared'
 import { UserService } from './user.service'
 import { CreateUser } from './dto/create-user.dto'
 
@@ -11,13 +11,6 @@ export class UserController {
 
   @Post()
   @HttpCode(HttpStatus.OK)
-  @UsePipes(
-    new ValidationPipe({
-      exceptionFactory: (errors) => 
-        new BadRequestException('Invalid request', { cause: errors })
-    })
-  )
-  @UseFilters(new GenericExceptionFilter)
   async createUser(@Body() body: CreateUser): Promise<GenericResponse> {
     await this.userService.createUser(body)
     return new GenericResponse('Please check your email.')
