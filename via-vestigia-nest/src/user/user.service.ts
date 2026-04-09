@@ -35,7 +35,6 @@ export class UserService {
         user.registrationToken
       )
     } catch (exception) {
-      // if (exception.message.includes('UNIQUE constraint')) {
       if (exception instanceof Error && exception.message.includes('UNIQUE constraint')) {
         throw new BadRequestException(
           'Invalid request', { 
