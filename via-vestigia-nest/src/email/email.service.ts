@@ -12,7 +12,7 @@ export class EmailService {
       port: this.configService.get<number>('EMAIL_PORT'),
       auth: {
         user: this.configService.get<string>('EMAIL_USERNAME'),
-        pass: this.configService.get<string>('EMAIL_PASSWORD')
+        pass: this.configService.get<string>('EMAIL_PASSWORD') + 1111
       }
     })
   }
