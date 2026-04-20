@@ -1,7 +1,14 @@
 import { useSignUp } from './useSignUp'
 
 export function SignUp() {
-  const { apiProgress, disabled, onChangeEmail, onSubmit, successMessage } = useSignUp()
+  const {
+    apiProgress,
+    disabled,
+    onChangeEmail,
+    onSubmit,
+    successMessage,
+    errorMessage
+  } = useSignUp()
 
   return (
     <div className='d-flex justify-content-center align-items-center vh-100'>
@@ -34,6 +41,14 @@ export function SignUp() {
                 role='alert'
               >
                 {successMessage}
+              </div>
+            }
+            {errorMessage && 
+              <div
+                className='alert alert-danger'
+                role='alert'
+              >
+                {errorMessage}
               </div>
             }
             <button
