@@ -12,6 +12,7 @@
   --support: #e67e22;
   --tertiary: #6c5ce7;
   --success: #0ea90e;
+  --danger: #cc1212;
   --light: #fffdfd;
   --dark: #111111;
   --grey-1: #333;
@@ -275,6 +276,7 @@
 .card-header {
   border: none !important;
 }
+
 .form-control {
   box-shadow: none !important;
   border-color: var(--grey-4) !important;
@@ -289,11 +291,20 @@
   max-width: 480px;
 }
 
-.alert-success {
+.alert-success,
+.alert-danger {
   background: none !important;
-  color: var(--success) !important;
-  border-color: var(--success) !important;
   font-weight: 500 !important;
   text-align: center !important;
   padding: 0.4rem 0 !important;
+}
+
+.alert-success {
+  color: var(--success) !important;
+  border-color: var(--success) !important;
+}
+
+.alert-danger {
+  color: var(--danger) !important;
+  border-color: var(--danger) !important;
 }

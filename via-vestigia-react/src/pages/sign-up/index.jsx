@@ -1,3 +1,4 @@
+import { AppAlert } from '../../assets/components'
 import { useSignUp } from './useSignUp'
 
 export function SignUp() {
@@ -7,7 +8,8 @@ export function SignUp() {
     onChangeEmail,
     onSubmit,
     successMessage,
-    errorMessage
+    errorMessage,
+    errors
   } = useSignUp()
 
   return (
@@ -16,6 +18,7 @@ export function SignUp() {
         <form
           className='card shadow-md '
           onSubmit={onSubmit}
+          noValidate
         >
           <div className='card-header text-center light-bg'>
             <h1 className='dark-text uppercase font-medium'>Register</h1>
@@ -33,24 +36,18 @@ export function SignUp() {
                 id='email'
                 autoComplete='off'
                 onChange={onChangeEmail}
+                type='email'
               />
+              <div className='small text-danger'>
+                {errors.email}
+              </div>
             </div>
-            {successMessage && 
-              <div
-                className='alert alert-success'
-                role='alert'
-              >
-                {successMessage}
-              </div>
-            }
-            {errorMessage && 
-              <div
-                className='alert alert-danger'
-                role='alert'
-              >
-                {errorMessage}
-              </div>
-            }
+            <AppAlert>
+              {successMessage}
+            </AppAlert>
+            <AppAlert variant='danger'>
+              {errorMessage}
+            </AppAlert>
             <button
               className='button main-btn-dark'
               disabled={disabled || apiProgress}
