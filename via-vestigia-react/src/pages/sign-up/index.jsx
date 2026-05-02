@@ -1,4 +1,4 @@
-import { AppAlert } from '../../assets/components'
+import { AppAlert, AppButton, AppInput } from '../../assets/components'
 import { useSignUp } from './useSignUp'
 
 export function SignUp() {
@@ -24,39 +24,25 @@ export function SignUp() {
             <h1 className='dark-text uppercase font-medium'>Register</h1>
           </div>
           <div className='card-body'>
-            <div className='mb-3'>
-              <label
-                className='form-label'
-                htmlFor='email'
-              >
-                Email
-              </label>
-              <input
-                className='form-control'
-                id='email'
-                autoComplete='off'
-                onChange={onChangeEmail}
-                type='email'
-              />
-              <div className='small text-danger'>
-                {errors.email}
-              </div>
-            </div>
+            <AppInput
+              id='email'
+              label='Email'
+              onChange={onChangeEmail}
+              type='email'
+              help={errors.email}
+            />
             <AppAlert>
               {successMessage}
             </AppAlert>
             <AppAlert variant='danger'>
               {errorMessage}
             </AppAlert>
-            <button
-              className='button main-btn-dark'
-              disabled={disabled || apiProgress}
+            <AppButton
+              disabled={disabled}
+              loading={apiProgress}
             >
-              {apiProgress &&
-                <span className='spinner-border spinner-border-sm'></span>
-              }
               Register
-            </button>
+            </AppButton>
           </div>      
         </form>  
       </div>
